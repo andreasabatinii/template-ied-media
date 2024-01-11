@@ -5,9 +5,9 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html <?php langiage_attributes();?>>
 <head>
-    <meta charset="utf-8">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Just Another WordPress Site</title>
     <link rel="shortcut icon" href="favicon.ico">
