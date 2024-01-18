@@ -9,7 +9,6 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Just Another WordPress Site</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Cardo|Montserrat:400,700&display=swap" rel="stylesheet">
 
@@ -26,11 +25,18 @@
             </a>
         </div>
 
-        <nav class="site-header__nav">
+        <!--
+             <nav class="site-header__nav">
             <ul>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contacts</a></li>
             </ul>
         </nav>
+-->
+
+        <?php
+        //prende il menu di navigazione
+        get_template_part( 'template-parts/nav-menu' )
+        ?>
     </div>
 </header>
