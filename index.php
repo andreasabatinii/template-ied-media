@@ -25,7 +25,7 @@
                    <?php the_category(); ?>
                 </div>
                 <h1 class="blog-entry__header__title"><?php the_title(); ?></h1>
-                <time datetime=""><?php the_time( 'F j Y' ); ?></time>
+                <time datetime=""><?php the_time( 'F j, Y' ); ?></time>
             </header>
         </article>
         <?php } ?>
