@@ -15,7 +15,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 <header class="site-header" role="banner">
     <div class="header-inner section-inner">
 

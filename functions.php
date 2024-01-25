@@ -21,6 +21,13 @@
    // aggiungo supporto per il Title nell'head
    add_theme_support( 'title-tag' );
 
+   // aggiungo supporto per il thumbnail del
+   add_theme_support( 'post-thumbnails' );
+
+   //Aggiungo un size dell'immagine personalizzato
+   //add_image_size( string $name, int $width, int $height, bool|array $crop = false ) - Questi sono i pararmetri che si prende
+   add_image_size ('custom-image', 700, 400, true );
+
    //registro menu di navigazione dinamici
       register_nav_menus(
          array(

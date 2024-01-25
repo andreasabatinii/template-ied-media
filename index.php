@@ -22,7 +22,7 @@
         <article class="blog-entry content-block">
             <header class="blog-entry__header">
                 <div class="blog-entry__header__category">
-                   <?php the_category(); ?>
+                   <?php the_category( ', ' ); ?>
                 </div>
                 <h1 class="blog-entry__header__title"><?php the_title(); ?></h1>
                 <time datetime=""><?php the_time( 'F j, Y' ); ?></time>
@@ -31,55 +31,20 @@
         <?php } ?>
 
         <ul class="post-list">
-            <li>
-                <div class="post-thumb">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/images/widget-1.jpg">
-                </div>
 
-                <div class="post-entry">
-                    <a href="#">Ask HN: Does Anybody Still Use JQuery?</a>
-                    <time datetime="">March 27, 2018</time>
-                    <p></p>
-                </div>
-            </li>
+            <?php if ( have_posts() ) {
+                while( have_posts() ) {
+                    the_post();
 
-            <li>
-                <div class="post-thumb">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/images/widget-2.jpg">
-                </div>
-
-                <div class="post-entry">
-                    <a href="#">Tell-A-Tool: Guide To Web Design And Development Tools</a>
-                    <time datetime="">January 27, 2020</time>
-                    <p></p>
-                </div>
-            </li>
-
-            <li>
-                <div class="post-thumb">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/images/widget-3.jpg">
-                </div>
-
-                <div class="post-entry">
-                    <a href="#">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a>
-                    <time datetime="">January 27, 2020</time>
-                    <p></p>
-                </div>
-            </li>
-
-            <li>
-                <div class="post-thumb">
-                    <img src="<?php bloginfo( 'template_directory' ); ?>/assets/images/widget-4.jpg">
-                </div>
-
-                <div class="post-entry">
-                    <a href="#">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a>
-                    <time datetime="">January 27, 2020</time>
-                    <p></p>
-                </div>
-
-            </li>
-
+                    if ( $post_in_evidenza_id != $post->ID ) { 
+                        get_template_part( 'template-parts/content-post');
+                    }            
+                }
+            }  else { ?>
+                    <h2> Siamo spiacenti ma non ci sono post da mostrare. </h2>
+                <?php
+            }
+            ?>
         </ul>
 
         <div class="pagination">
