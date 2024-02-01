@@ -8,6 +8,10 @@
  function tema_ied_enqueue_scripts_and_styles() {
     // Inlcudo foglio di stile principlae
     wp_enqueue_style( 'style', get_stylesheet_uri(),  array(), wp_get_theme()->get('Version'), 'all');
+
+    // Includo Font awesom
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' );
+
     wp_enqueue_script( 'index', get_template_directory_uri() . '/assets/js/index.js', array(), wp_get_theme()->get('Version'), true );
  }
 
@@ -23,6 +27,33 @@
    )
 
    );
+
+
+   //Registrazione custom post type.
+   register_post_type( 'portfolio', array (
+      'labels' => array(
+         'name' => 'Portfolio',
+         'sungular name' => 'Portfolio Item',
+      ),
+      'public' => true,
+      'menu-icon' => 'dashicons-format-image',
+      'supports' => array(
+         'title',
+         'editor',
+         'thumbnail',
+         'excerpt',
+         'custom-fields',
+         'author',
+         'revisions'
+      ),
+      'taxonomies' => array(
+         'category',
+         'post_tag',
+      ),
+
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'portfolio'),
+   ));
  }
 
  add_action ('init', 'tema_ied_init');

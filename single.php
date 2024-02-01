@@ -26,21 +26,19 @@ get_header(); ?>
 
                     the_content();
                     ?>
-                    <?php get_sidebar();?>
-
-
-                    </article>
+                   
+                    <?php if (has_tag()) { ?>
+                        <div class="tags-widget">
+                            <?php the_tags( '<ul><li>', '</li><li>', '<ul>'); ?>
+                        </div>
+                    <?php
+                }
+                    get_search_form(); ?>
+            </article>
                 <?php
             }
-        } ?>
-
-        <?php if (has_tag()) { ?>
-            <div class="tags-widget">
-                <?php the_tags( '<ul><li>', '</li><li>', '<ul>'); ?>
-            </div>
-            <?php
-        }
-        ?>
+    } 
+    get_sidebar();?>
 
     </div>
 </main>
